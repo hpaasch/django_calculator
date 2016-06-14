@@ -1,1 +1,5 @@
 .idea/
+hep_app/__pycache__/
+django_calculator/__pycache__/
+hep_app/migrations/__pycache__/
+hep_app/static/hep_app/css/main.css

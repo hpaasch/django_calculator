@@ -1,10 +1,22 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Calculator</title>
+    <link rel="stylesheet" href="{% static 'hep_app/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'hep_app/css/main.css' %}">
 </head>
 <body>
-<h1>Calculator to come</h1>
+<h1>Calculator is on the way!</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Calculate">
+    <p> When {{ Calculation.do_math }} is applied to {{ entry_one }} and {{ entry_two }} the result is {{ result }}</p>
+</form>
+
+
 </body>
 </html>
