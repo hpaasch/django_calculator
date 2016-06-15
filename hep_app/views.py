@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from hep_app.forms import Calculation
@@ -7,9 +8,13 @@ def create_user_view(request):
     return render(request, "create_user_view.html")
 
 
-def login_view(request):
-    return render(request, "login_view.html")
+@login_required
+def old_math_view(request):
+    return render(request, "old_math_view.html")
 
+
+def saved_calculate_view(request):
+    return render(request, "saved_calculate_view.html")
 
 
 def calculate_view(request):
