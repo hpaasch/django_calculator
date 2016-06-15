@@ -9,15 +9,27 @@
     <link rel="stylesheet" href="{% static 'hep_app/css/main.css' %}">
 </head>
 <body>
-<h1>Get the computer to do some math for you</h1>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Calculate">
-    <h3>And the answer:</h3>
-    <p> {{ one }} {{ math }} {{ two }} = {{ result }}</p>
-</form>
+    <div class="container">
+        <div class="page-header">
+          <h1>Simple calculator<small>  Save your brain. Use this.</small></h1>
+        </div>
 
+        <form method="post">
+            {% csrf_token %}
+            {% if result == 0 %}
+                <p>{{ form.entry_one }} Enter a number</p>
+            {% else %}
+                <p>{{ form_new.entry_one }} Do some more math on this number</p>
+            {% endif %}
+            <p> <span id="operators">{{ form.do_math }} </span> Choose an operation</p>
+            <p>{{ form.entry_two }} Enter another number</p>
+            <button type="submit" class="btn btn-success">Calculate</button>
 
+            <h4>And the answer: <span class="label label-success">
+                {{ one }} {{ math }} {{ two }} = {{ result }}</span></h4>
+            <p> </p>
+        </form>
+
+    </div>
 </body>
 </html>

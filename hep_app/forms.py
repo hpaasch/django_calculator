@@ -2,8 +2,8 @@ from django import forms
 
 action_choices = (
     ('Add', '+'),
-    ('Subtract', '-'),
-    ('Multiply', '*'),
+    ('Subtract', '—'),
+    ('Multiply', 'x'),
     ('Divide', '/'),
      )
 
