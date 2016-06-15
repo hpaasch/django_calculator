@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>this is the login page</h1>
+<h1>Sign in </h1>
+    <h4>Saves your calculations and allows you to review your history.</h4>
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Log in">
+    <p>(Not yet a member? <a href="{% url 'create_user_view' %}">Sign up here</a>.)</p>
+
+    </form>
 {% endblock %}

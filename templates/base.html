@@ -8,19 +8,22 @@
     <link rel="stylesheet" href="{% static 'hep_app/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'hep_app/css/main.css' %}">
 </head>
-<body>
-    <br>
-    <a href="{% url 'old_math_view' %}">View Previous Calculations</a>
-    <br>
+<body> <!-- need to control what logged in user sees -->
     <a href="{% url 'create_user_view' %}">New around here? Register to save your calculations</a>
     <br>
     <a href="{% url 'login_view' %}">Already a member? Login in to save your calculations</a>
     <br>
-    <a href="{% url 'saved_calculate_view' %}">Use calculator that saves</a>
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'old_math_view' %}">View Previous Calculations</a>
+        <br>
+
+        <a href="{% url 'logout_view' %}">Logout</a>
+    {% endif %}
     <br>
-    <a href="{% url 'calculate' %}">Use calculator with no memory</a>
-    <br>
-    <a href="{% url 'logout_view' %}">Logout</a>
+    <a href="{% url 'calculate' %}">Use calculator</a>
+    <p>delete this</p>
+    <a href="{% url 'saved_calculate_view' %}">Use calculator that saves</a> <!-- DELETE -->
+        <br>
 
     <div class="container">
         {% block content %}

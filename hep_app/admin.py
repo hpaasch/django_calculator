@@ -1,6 +1,6 @@
 from django.contrib import admin
 
 # Register your models here.
-# from hep_app.forms import Calculation
+from hep_app.models import SavedCalculation
 #
-# admin.site.register(Calculation)
+admin.site.register(SavedCalculation)
