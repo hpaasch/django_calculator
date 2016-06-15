@@ -1,11 +1,22 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from hep_app.forms import Calculation
 
 
 def create_user_view(request):
-    return render(request, "create_user_view.html")
+    if request.POST:
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse("calculate"))
+        else:
+            return render(request, "create_user_view.html", {'form': form})
+    form = UserCreationForm
+    return render(request, "create_user_view.html", {'form': form})
 
 
 @login_required
