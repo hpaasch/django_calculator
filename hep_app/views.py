@@ -3,6 +3,15 @@ from django.shortcuts import render
 from hep_app.forms import Calculation
 
 
+def create_user_view(request):
+    return render(request, "create_user_view.html")
+
+
+def login_view(request):
+    return render(request, "login_view.html")
+
+
+
 def calculate_view(request):
     result = 0
     entry_one = 'X'

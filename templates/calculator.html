@@ -1,15 +1,5 @@
-{% load staticfiles %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Calculator</title>
-    <link rel="stylesheet" href="{% static 'hep_app/css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'hep_app/css/main.css' %}">
-</head>
-<body>
-    <div class="container">
+{% extends 'base.html' %}
+    {% block content %}
         <div class="page-header">
           <h1>Simple calculator<small>  Save your brain. Use this.</small></h1>
         </div>
@@ -24,12 +14,8 @@
             <p> <span id="operators">{{ form.do_math }} </span> Choose an operation</p>
             <p>{{ form.entry_two }} Enter another number</p>
             <button type="submit" class="btn btn-success">Calculate</button>
-
             <h4>And the answer: <span class="label label-success">
                 {{ one }} {{ math }} {{ two }} = {{ result }}</span></h4>
             <p> </p>
         </form>
-
-    </div>
-</body>
-</html>
+    {% endblock %}
