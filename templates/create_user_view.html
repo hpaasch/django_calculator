@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Register here</h1>
-    <h4>Saves a history of your calculations</h4>
+    <h1>Registration</h1>
+    <h4>Create an account to save a history of your calculations</h4>
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
     <input type="submit" value="Sign me up!">
-    <p>Already registered? <a href="{% url 'login_view' %}">Login here.</a> </p>
+    <p>Already registered? <a href="{% url 'login_view' %}">Sign in here.</a> </p>
     </form>
 {% endblock %}

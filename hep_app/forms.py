@@ -2,7 +2,7 @@ from django import forms
 
 action_choices = (
     ('Add', '+'),
-    ('Subtract', '—'),
+    ('Subtract', '-'),
     ('Multiply', 'x'),
     ('Divide', '/'),
      )

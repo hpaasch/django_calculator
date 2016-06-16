@@ -16,6 +16,9 @@
             <button type="submit" class="btn btn-success">Calculate</button>
             <h4>And the answer: <span class="label label-success">
                 {{ one }} {{ math }} {{ two }} = {{ result }}</span></h4>
-            <p> </p>
+            {% if request.user.is_authenticated == False %}
+            <p>If you'd like to save your calculations for future reference,
+                <a href="{% url 'create_user_view' %}">register here</a>.</p>
+            {% endif %}
         </form>
     {% endblock %}

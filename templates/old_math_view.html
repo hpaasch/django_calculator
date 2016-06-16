@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>this page shows your calculator history</h1>
-    {{  }}
+    <div class="page-header">
+        <h1>Simple calculator<small>  Save your brain. Use this.</small></h1>
+    </div>
+
+    <h3>Here are calculations {{ request.user }} previously entered.</h3>
+        {% for math in old_math %}
+            <h5>{{ math.entry_one }} {{ math.math }} {{ math.entry_two }} = {{ math.result }}</h5>
+        {% endfor %}
 {% endblock %}

@@ -23,11 +23,8 @@ def create_user_view(request):
 @login_required
 def old_math_view(request):
     old_math = SavedCalculation.objects.filter(math_user__username=request.user)
+
     return render(request, "old_math_view.html", {'old_math': old_math})
-
-
-def saved_calculate_view(request):
-    return render(request, "saved_calculate_view.html")
 
 
 def calculate_view(request):

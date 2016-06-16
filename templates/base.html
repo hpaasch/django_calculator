@@ -8,22 +8,21 @@
     <link rel="stylesheet" href="{% static 'hep_app/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'hep_app/css/main.css' %}">
 </head>
-<body> <!-- need to control what logged in user sees -->
-    <a href="{% url 'create_user_view' %}">New around here? Register to save your calculations</a>
-    <br>
-    <a href="{% url 'login_view' %}">Already a member? Login in to save your calculations</a>
-    <br>
-    {% if request.user.is_authenticated %}
-        <a href="{% url 'old_math_view' %}">View Previous Calculations</a>
-        <br>
-
-        <a href="{% url 'logout_view' %}">Logout</a>
-    {% endif %}
-    <br>
-    <a href="{% url 'calculate' %}">Use calculator</a>
-    <p>delete this</p>
-    <a href="{% url 'saved_calculate_view' %}">Use calculator that saves</a> <!-- DELETE -->
-        <br>
+<body>
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            {% if request.user.is_authenticated %}
+                <a class="btn btn-primary btn-sm" href="{% url 'old_math_view' %}">Math History</a>
+                <a class="btn btn-primary btn-sm" href="{% url 'logout_view' %}">Logout</a>
+                <a class="btn btn-primary btn-sm" href="{% url 'calculate' %}">Calculator</a>
+                <p class="navbar-text navbar-right">Signed in as <a href="{% url 'old_math_view' %}"
+                                                                    class="navbar-link">{{ request.user }}</a></p>
+            {% else %}
+                <a class="btn btn-primary btn-sm" href="{% url 'create_user_view' %}">Register</a>
+                <a class="btn btn-primary btn-sm" href="{% url 'login_view' %}">Sign in</a>
+            {% endif %}
+        </div>
+    </nav>
 
     <div class="container">
         {% block content %}
