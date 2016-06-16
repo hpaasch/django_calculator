@@ -1,1 +1,6 @@
-Basic calculator plus it uses the result as the base for the next calculation.
+This assignment began as a basic calculator that saved the original result
+and used that as the starting point for the next calculation.
+
+The calculator now allows someone to use it in that same way, OR the
+person can create an account, log in and have their calculations saved. The
+history is presented to that person on login.
